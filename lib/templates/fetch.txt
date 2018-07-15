@@ -1,0 +1,65 @@
+import { createAction } from 'redux-actions';
+import { call, put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
+
+// api calls
+export const get<ACTION-ONE> = () => axios.get('/api/<ACTION-TWO>');
+
+// events
+export const FETCH_<ACTION-CAPS> = 'FETCH_<ACTION-CAPS>';
+export const FETCH_<ACTION-CAPS>_SUCCESS = 'FETCH_<ACTION-CAPS>_SUCCESS';
+export const FETCH_<ACTION-CAPS>_FAILED = 'FETCH_<ACTION-CAPS>_FAILED';
+
+// status
+export const UNINITIALISED = 'UNINITIALISED';
+export const LOADING = 'LOADING';
+export const LOADING_FAILED = 'LOADING_FAILED';
+export const LOADED = 'LOADED';
+
+// errors
+export const FAILED_TO_RETRIEVE_<ACTION-CAPS> = 'FAILED_TO_RETRIEVE_<ACTION-CAPS>';
+
+// actions
+export const fetch<ACTION-ONE> = createAction(FETCH_<ACTION-CAPS>);
+export const fetch<ACTION-ONE>Success = createAction(FETCH_<ACTION-CAPS>_SUCCESS);
+export const fetch<ACTION-ONE>Failed = createAction(FETCH_<ACTION-CAPS>_FAILED);
+
+const INITIAL_STATE = {
+    status: UNINITIALISED,
+};
+
+// reducer
+export default (state = INITIAL_STATE, { type, payload }) => {
+    switch (type) {
+        case FETCH_<ACTION-CAPS>:
+            return { ...state, status: LOADING };
+
+        case FETCH_<ACTION-CAPS>_SUCCESS:
+            return { ...state, status: LOADED, <ACTION-TWO>: payload.data };
+
+        case FETCH_<ACTION-CAPS>_FAILED:
+            return {
+                ...state,
+                status: LOADING_FAILED,
+                error: FAILED_TO_RETRIEVE_<ACTION-CAPS>,
+            };
+
+        default:
+            return state;
+    }
+};
+
+// watchers
+export function* watch<ACTION-ONE>Saga() {
+    yield takeLatest(FETCH_<ACTION-CAPS>, fetch<ACTION-ONE>Saga);
+}
+
+// sagas
+export function* fetch<ACTION-ONE>Saga() {
+    try {
+        const res = yield call(get<ACTION-ONE>);
+        yield put(fetch<ACTION-ONE>Success(res));
+    } catch (err) {
+        yield put(fetch<ACTION-ONE>Failed(err));
+    }
+}
