@@ -4,6 +4,7 @@
   "description": "A generator for creating redux moduels. Remove the boilerplate out of working with redux.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ciaran Ashton",
