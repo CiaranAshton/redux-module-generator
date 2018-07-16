@@ -17,7 +17,7 @@ export const LOADING_FAILED = 'LOADING_FAILED';
 export const LOADED = 'LOADED';
 
 // errors
-export const FAILED_TO_RETRIEVE_<ACTION-CAPS> = 'FAILED_TO_RETRIEVE_<ACTION-CAPS>';
+export const FAILED_TO_CREATE_<ACTION-CAPS> = 'FAILED_TO_CREATE_<ACTION-CAPS>';
 
 // actions
 export const fetch<ACTION-ONE> = createAction(FETCH_<ACTION-CAPS>);

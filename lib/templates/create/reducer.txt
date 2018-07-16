@@ -1,0 +1,12 @@
+case CREATE_<ACTION-CAPS>:
+            return { ...state, status: LOADING };
+
+        case CREATE_<ACTION-CAPS>_SUCCESS:
+            return { ...state, status: LOADED, <ACTION-TWO>: payload.data };
+
+        case CREATE_<ACTION-CAPS>_FAILED:
+            return {
+                ...state,
+                status: LOADING_FAILED,
+                error: FAILED_TO_CREATE_<ACTION-CAPS>,
+            };

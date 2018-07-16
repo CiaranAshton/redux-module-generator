@@ -1,0 +1,42 @@
+import { createAction } from 'redux-actions';
+import { call, put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
+
+// api calls
+export const get<ACTION-ONE> = () => axios.get('/api/<ACTION-TWO>');
+
+// events
+<CREATE-EVENTS>
+
+// status
+export const UNINITIALISED = 'UNINITIALISED';
+export const LOADING = 'LOADING';
+export const LOADING_FAILED = 'LOADING_FAILED';
+export const LOADED = 'LOADED';
+
+// errors
+export const FAILED_TO_CREATE_<ACTION-CAPS> = 'FAILED_TO_CREATE_<ACTION-CAPS>';
+
+// actions
+<CREATE-ACTIONS>
+
+const INITIAL_STATE = {
+    status: UNINITIALISED,
+};
+
+// reducer
+export default (state = INITIAL_STATE, { type, payload }) => {
+    switch (type) {
+        <CREATE-REDUCER>
+        default:
+            return state;
+    }
+};
+
+// watchers
+export function* watch<ACTION-ONE>Saga() {
+    <CREATE-WATCHER>
+}
+
+// sagas
+<CREATE-SAGA>

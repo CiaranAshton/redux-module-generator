@@ -6,19 +6,33 @@ const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const rimraf = promisify(require('rimraf'));
 
-const testyFix = require('./fixtures/fetch')();
+const testyFetchFix = require('./fixtures/fetch')();
+const testyCreateFix = require('./fixtures/create')();
 
 describe('lib/generate', () => {
-    it('creates a "testy" module for fetching', async () => {
-        await generate({ name: 'testy' });
+	it('creates a "testy" module for fetching', async () => {
+		await generate({ name: 'testy', actions: ['fetch'] });
 
-        const res = await readFile(
-            path.join(__dirname, '../testy/index.js'),
-            'utf8',
-        );
+		const res = await readFile(
+			path.join(__dirname, '../testy/index.js'),
+			'utf8',
+		);
 
-        expect(res.trim()).to.equal(testyFix);
+		await rimraf(path.join(__dirname, '../testy'));
 
-        await rimraf(path.join(__dirname, '../testy'));
-    });
+		expect(res.trim()).to.equal(testyFetchFix);
+	});
+
+	it('creates a "testy" module for creating', async () => {
+		await generate({ name: 'testy', actions: ['create'] });
+
+		const res = await readFile(
+			path.join(__dirname, '../testy/index.js'),
+			'utf8',
+		);
+
+		await rimraf(path.join(__dirname, '../testy'));
+
+		expect(res.trim()).to.equal(testyCreateFix);
+	});
 });

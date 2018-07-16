@@ -1,0 +1,8 @@
+export function* create<ACTION-ONE>Saga() {
+    try {
+        const res = yield call(get<ACTION-ONE>);
+        yield put(create<ACTION-ONE>Success(res));
+    } catch (err) {
+        yield put(create<ACTION-ONE>Failed(err));
+    }
+}
