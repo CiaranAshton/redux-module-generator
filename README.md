@@ -18,6 +18,7 @@ $ npm test
 ```
 
 ## TODOs
+- Error Handling
 - Web based UI
 - Generate reducer tests for modules
 - Generate modules for
