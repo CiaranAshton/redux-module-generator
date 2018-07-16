@@ -6,6 +6,7 @@ import axios from 'axios';
 export const get<ACTION-ONE> = () => axios.get('/api/<ACTION-TWO>');
 
 // events
+<FETCH-EVENTS>
 <CREATE-EVENTS>
 
 // status
@@ -14,10 +15,8 @@ export const LOADING = 'LOADING';
 export const LOADING_FAILED = 'LOADING_FAILED';
 export const LOADED = 'LOADED';
 
-// errors
-export const FAILED_TO_CREATE_<ACTION-CAPS> = 'FAILED_TO_CREATE_<ACTION-CAPS>';
-
 // actions
+<FETCH-ACTIONS>
 <CREATE-ACTIONS>
 
 const INITIAL_STATE = {
@@ -27,7 +26,8 @@ const INITIAL_STATE = {
 // reducer
 export default (state = INITIAL_STATE, { type, payload }) => {
     switch (type) {
-        <CREATE-REDUCER>
+<FETCH-REDUCER>
+<CREATE-REDUCER>
         default:
             return state;
     }
@@ -35,8 +35,10 @@ export default (state = INITIAL_STATE, { type, payload }) => {
 
 // watchers
 export function* watch<ACTION-ONE>Saga() {
-    <CREATE-WATCHER>
+<FETCH-WATCHER>
+<CREATE-WATCHER>
 }
 
 // sagas
+<FETCH-SAGA>
 <CREATE-SAGA>

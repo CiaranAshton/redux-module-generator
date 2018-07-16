@@ -8,6 +8,7 @@ const start = () => {
     
 	generator({
         name: module,
+        actions,
 	});
 };
 

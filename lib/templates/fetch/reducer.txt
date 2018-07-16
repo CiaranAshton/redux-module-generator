@@ -1,0 +1,12 @@
+        case FETCH_<ACTION-CAPS>:
+            return { ...state, status: LOADING };
+
+        case FETCH_<ACTION-CAPS>_SUCCESS:
+            return { ...state, status: LOADED, <ACTION-TWO>: payload.data };
+
+        case FETCH_<ACTION-CAPS>_FAILED:
+            return {
+                ...state,
+                status: LOADING_FAILED,
+                error: 'FAILED_TO_RETRIEVE_<ACTION-CAPS>',
+            };

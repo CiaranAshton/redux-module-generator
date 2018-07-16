@@ -1,0 +1,1 @@
+    yield takeLatest(FETCH_<ACTION-CAPS>, fetch<ACTION-ONE>Saga);

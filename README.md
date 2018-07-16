@@ -23,5 +23,5 @@ $ npm test
 - Generate reducer tests for modules
 - Generate modules for
 	- ~~Fetching~~
-	- Creating
+	- ~~Creating~~
 	- Updating

@@ -1,0 +1,8 @@
+export function* fetch<ACTION-ONE>Saga() {
+    try {
+        const res = yield call(get<ACTION-ONE>);
+        yield put(fetch<ACTION-ONE>Success(res));
+    } catch (err) {
+        yield put(fetch<ACTION-ONE>Failed(err));
+    }
+}
