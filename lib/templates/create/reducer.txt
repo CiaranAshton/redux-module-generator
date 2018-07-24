@@ -1,6 +1,5 @@
         case CREATE_<ACTION-CAPS>:
             return { ...state, status: LOADING };
-
         case CREATE_<ACTION-CAPS>_SUCCESS:
             return { 
                 ...state, 
@@ -10,7 +9,6 @@
                     [payload.id]: payload.data,
                 }
             };
-
         case CREATE_<ACTION-CAPS>_FAILED:
             return {
                 ...state,

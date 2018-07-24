@@ -11,8 +11,6 @@ export const FETCH_TESTY = 'FETCH_TESTY';
 export const FETCH_TESTY_SUCCESS = 'FETCH_TESTY_SUCCESS';
 export const FETCH_TESTY_FAILED = 'FETCH_TESTY_FAILED';
 
-
-
 // status
 export const UNINITIALISED = 'UNINITIALISED';
 export const LOADING = 'LOADING';
@@ -24,7 +22,7 @@ export const fetchTesty = createAction(FETCH_TESTY);
 export const fetchTestySuccess = createAction(FETCH_TESTY_SUCCESS);
 export const fetchTestyFailed = createAction(FETCH_TESTY_FAILED);
 
-
+// initial state
 const INITIAL_STATE = {
     status: UNINITIALISED,
 };
@@ -34,17 +32,14 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     switch (type) {
         case FETCH_TESTY:
             return { ...state, status: LOADING };
-
         case FETCH_TESTY_SUCCESS:
             return { ...state, status: LOADED, testy: payload.data };
-
         case FETCH_TESTY_FAILED:
             return {
                 ...state,
                 status: LOADING_FAILED,
                 error: 'FAILED_TO_RETRIEVE_TESTY',
             };
-
         default:
             return state;
     }
@@ -53,7 +48,6 @@ export default (state = INITIAL_STATE, { type, payload }) => {
 // watchers
 export function* watchTestySaga() {
     yield takeLatest(FETCH_TESTY, fetchTestySaga);
-
 }
 
 // sagas

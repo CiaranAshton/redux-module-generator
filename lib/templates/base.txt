@@ -19,6 +19,7 @@ export const LOADED = 'LOADED';
 <FETCH-ACTIONS>
 <CREATE-ACTIONS>
 
+// initial state
 const INITIAL_STATE = {
     status: UNINITIALISED,
 };
